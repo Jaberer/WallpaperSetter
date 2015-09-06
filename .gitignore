@@ -1,0 +1,12 @@
+#Gradle
+.gradle/
+.idea/
+WallpaperSetter.iml
+settings.gradle
+build.gradle
+build/
+gradle.properties
+gradle/
+gradlew
+gradlew.bat
+local.properties
