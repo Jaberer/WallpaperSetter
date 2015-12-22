@@ -1,5 +1,9 @@
 package com.example.joseph.wallpapersetter;
 
+import android.app.Activity;
+import android.content.ContextWrapper;
+import android.view.View;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -52,10 +56,21 @@ public class RedditManager
     }
 
     /**
+     * Public getter method
+     * @return random Url from redditJSON
+     */
+    public String getRandomUrl()
+    {
+        String url;
+        // TODO: parse Json object
+        return url;
+    }
+
+    /**
      * Private setter Object - use a HTTP get request using Volley to set JSON Object
      */
     private void setJSONObject() {
-        RequestQueue queue = Volley.newRequestQueue(MyApplication.getContext());
+        RequestQueue queue = Volley.newRequestQueue(null);
         String url = HOST + subReddit + JSON_TYPE;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -87,5 +102,11 @@ public class RedditManager
                     error.printStackTrace();
                 }
             });
+    }
+
+    private int genRandomInt(int limit)
+    {
+        int ran = (int) (Math.random() * (limit + 1));
+        return ran;
     }
 }
